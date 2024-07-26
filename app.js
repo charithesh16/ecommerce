@@ -14,7 +14,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'Enter your mongoDb url here';
+  "mongodb+srv://chary:StewieGriffin@cluster0.4veuk50.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const app = express();
 const store = new MongoDBStore({
@@ -111,7 +111,7 @@ app.use(errorController.get404);
 // });
 
 mongoose
-  .connect(MONGODB_URI)
+  .connect(MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => {
     app.listen(3000);
   })
